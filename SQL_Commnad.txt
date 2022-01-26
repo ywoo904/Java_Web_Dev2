@@ -12,3 +12,98 @@ Additional DB language:
 -Candidate Key(후보키): 레코드를 고유하게 구별할 수 있는 키들 모두 
 -Foreign Key(외래키): 테이블들 간에 참조 무결성을 위해서 사용 값
 
+DESC t_table; 이용하면 테이블 구성요소 한번에 확인가능 
+
+ALTER: 객체 수정- 구조를 변경하고자 할 떄
+-지정한 테이블에 컬럼을 추가하려고 할 때 
+ALTER TABLE  table_name ADD column_name datatype; 
+EX) ALTER TABLE t_table ADD phone VARCHAR(20);
+
+-데이터타입 수정하기 
+ALTER TABLE t_table MODIFY COLUMN korean VARCHAR(5);
+
+-테이블 컬럼 삭제하기 
+ALTER TABLE t_table DROP COLUMN korean;
+
+-컬럼 추가하고 타입 변경하기  
+ALTER TABLE t_table ADD KOREAN VARCHAR(20), ADD Math VARCHAR(10);
+ALTER TABLE t_table MODIFY COLUMN MATH INT, MODIFY COLUMN ENGLISH INT; 
+
+-테이블 내용 삽입 후 안의 내용 전부 삭제하기  
+INSERT INTO t_table(stu_num,NAME) VALUES (1,'test');
+TRUNCATE TABLE t_table;
+
+-테이블, 데이터베이스 다 지우기 
+DROP table t_table; 
+DROP database testdb; 
+
+-접속한 Database확인하기  
+SELECT DATABASE (); 
+
+-제약조건 설정하기 
+CREATE TABLE PERSONS (  
+ID INT NOT NULL, 
+LASTName VARCHAR(255) NOT NULL, 
+FIRSTName VARCHAR(255) NOT NULL, 
+AGE INT 
+);
+
+-데이터베이스와 테이블을 한꺼번에 만들기 
+CREATE table testDB.tables ( ); 
+
+-persons테이블 만들기(Primary key, Not null 등 제약조건 확인)  
+CREATE TABLE persons ( 
+ID INT NOT NULL, 
+LASTName VARCHAR (255) NOT NULL, 
+FIRSTName VARCHAR (255), 
+age INT,
+CHECK (Age>=18) 
+ );
+
+-Table 명이 'persons'인 테이블의 제약조건을 모두 출력해라 
+SELECT * FROM information_schema.table_constraints WHERE TABLE_NAME='persons';
+
+-세로운 테이블 생성  
+CREATE TABLE Orders (   
+ID INT NOT NULL, 
+OrderNumber INT NOT NULL, 
+OrderDate TIMESTAMP DEFAULT NOW ()
+);
+
+-ID, OrderNumber 에 1,1,을 넣어도 Timestamp가 Default이기 때문에 자동으로 들어간다.  
+INSERT INTO orders (ID, OrderNumber) VALUES (1,1); 
+
+
+-persons테이블 생성 
+CREATE TABLE persons (  
+ID INT NOT NULL AUTO_INCREMENT, 
+LastName VARCHAR(255) NOT NULL, 
+FirstName VARCHAR(255), 
+Age INT, 
+PRIMARY KEY(ID)
+); 
+
+-persons테이블에 값 입력 
+INSERT INTO persons (LastName, FirstName, Age) 
+VALUES ('t1','Young', 21);
+
+-테이블 자동증가 시작값 변경하기 
+ALTER TABLE persons AUTO_INCREMENT=100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
