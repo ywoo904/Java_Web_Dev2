@@ -22,6 +22,7 @@
 
 
 MariaDB [testDB]> select * from Persons;
+
 +----+----------+-----------+------+---------+
 | ID | LastName | FirstName | Age  | City    |
 +----+----------+-----------+------+---------+
@@ -38,7 +39,8 @@ MariaDB [testDB]> select * from Persons;
 +----+----------+-----------+------+---------+
 10 rows in set (0.001 sec)
 
-
+INSERT INTO persons (ID,ORDERNUMBER, PERSONID) 
+VALUES (1,1,1); persons
 MariaDB [testDB]> select * from Orders;
 +----+-------------+----------+---------------------+
 | ID | OrderNumber | PersonID | OrderDate           |

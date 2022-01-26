@@ -81,7 +81,7 @@ LastName VARCHAR(255) NOT NULL,
 FirstName VARCHAR(255), 
 Age INT, 
 PRIMARY KEY(ID)
-); 
+); s
 
 -persons테이블에 값 입력 
 INSERT INTO persons (LastName, FirstName, Age) 
@@ -89,6 +89,83 @@ VALUES ('t1','Young', 21);
 
 -테이블 자동증가 시작값 변경하기 
 ALTER TABLE persons AUTO_INCREMENT=100;
+
+#Update 실습예제 
+
+UPDATE table_name SET column = value1 where condition; 
+
+Ex) ID가 3인 사람의 person ID를 10으로 변경하여라
+UPDATE orders SET personID=10 WHERE ID=3; 
+
+
+UPDATE orders SET Person ID =4 WHERE id= 1,3,5;
+*Where절의 복수형은? => Or 을 사용 
+UPDATE orders SET PersonID=4 WHERE ID =1 OR ID=3 OR ID =5; 
+ 
+SELECT: 테이블 내에 데이터를 검색 
+
+
+-나이가 30대인 사람이 사는 도시는?  
+SELECT CITY    
+FROM persons   
+WHERE age between 30 and 39; 
+
+
+where A and B 
+where A or B 
+where not a='value' 
+
+
+부산과 수원에 사는 사람 중 나이가 30 이상 사람들 
+SELECT FIRSTNAME, LASTNAME 
+FROM persons 
+WHERE CITY= 'Busan' OR CITY= 'Suwon'; 
+
+나이가 20이상 사람중 도시가 광주인 사람과 대구인 사람의 나이 
+SELECT CITY, AGE  
+FROM persons 
+WHERE age>=20 AND 
+(CITY='Gwangju' OR 
+CITY='Daegu') 
+
+도시가 서울이 아닌 사람들 중에서 부산 사람을 뺸 나머지  
+SELECT *                                       
+FROM persons                                   
+WHERE NOT CITY= 'SEOUL' AND NOT CITY='Busan';  
+
+Order by: 결과에 대한 정렬 
+
+Stringhouse 
+SELECT a,b,c 
+FROM table_name 
+ORDER BY a,b,c ASC | DESC 
+
+Transaction: 
+Alter talbe table_name engine=INnoB
+
+rollback;
+   
+DELETE: 테이블 내에 데이터를 삭제 
+
+<집단함수> 
+MAX() 
+MIN()
+COUNT()
+AVG() 예제: Persons 테이블 안에 있는 사람들의 나이의 평균  
+SUM(): select sum(Age) from Persons why City= 'Seoul'; 
+
+LIKE조건문: 
+
+WHERE COLUMN LIKE 'a%' 
+WHERE COLUMN LIKE '%a' 
+WHERE COLUMN LIKE '%or%'
+WHERE COLUMN LIKE '_r%'
+WHERE COLUMN LIKE 'a_%_%'
+WHERE COLUMN LIKE 'a%o'
+
+SELECT * 
+FROM PERSONS 
+WHERE CITY IN  ('SEOUL',
 
 
 
