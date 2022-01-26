@@ -74,6 +74,7 @@ OrderDate TIMESTAMP DEFAULT NOW ()
 INSERT INTO orders (ID, OrderNumber) VALUES (1,1); 
 
 
+<<<<<<< Updated upstream
 -persons테이블 생성 
 CREATE TABLE persons (  
 ID INT NOT NULL AUTO_INCREMENT, 
@@ -180,6 +181,8 @@ WHERE CITY IN  ('SEOUL',
 
 
 
+=======
+>>>>>>> Stashed changes
 
 
 
