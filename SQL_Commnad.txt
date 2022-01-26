@@ -1,0 +1,14 @@
+CREATE TABLE table_name ( => table 생성 
+column1 datatype,  => 테이블 내에 저장형식 지정
+column2 datatype, 
+column3 datatype); 
+
+Additional DB language: 
+-table/relation: 표, 데이터의 집합
+-row/record/tuple: 테이블의 행에 해당 
+-column/field/attribute: 테이블의 열에 해당
+-cell: 테이블에서 행과 열의 교차점에 있는 특정 값이 저장된 위치 
+-Primary Kery(기본키): 레코드를 고유하게 구별할 수 있는 값
+-Candidate Key(후보키): 레코드를 고유하게 구별할 수 있는 키들 모두 
+-Foreign Key(외래키): 테이블들 간에 참조 무결성을 위해서 사용 값
+
