@@ -74,7 +74,6 @@ OrderDate TIMESTAMP DEFAULT NOW ()
 INSERT INTO orders (ID, OrderNumber) VALUES (1,1); 
 
 
-<<<<<<< Updated upstream
 -persons테이블 생성 
 CREATE TABLE persons (  
 ID INT NOT NULL AUTO_INCREMENT, 
@@ -169,20 +168,45 @@ FROM PERSONS
 WHERE CITY IN  ('SEOUL',
 
 
+SELECT MAX(AGE) 
+FROM (
+SELECT AGE
+FROM PERSONS 
+WHERE CITY='SEOUL') AS AGETABLE; 
+
+SELECT orders.ID, orders.ORDERDATE, persons.FirstName 
+FROM persons, orders
+WHERE persons.Firstname='user7' AND persons.ID=orders.PERSONID; 
+
+SELECT 집단함수
+FROM talbe 
+group by column having condition 
+
+SELECT CITY, COUNT(city)
+FROM persons
+GROUP BY CITY; 
+
+두테이블의 관계성을 가지고 내용을 조합(INNER JOIN) 
+SELECT firstname, age, city, ORDERnumber, ORDERdate
+FROM persons
+INNER JOIN orders ON persons.ID= orders.PERSONID;
+
+2) OUTER JOIN: 한 테이블의 행을 다른 테이블의 행과 연결하는 방식
+
+LEFT OUTER JOIN: 조인되는 두 테이블 중 왼쪽 테이블의 모든행이 결과 관계없이 모두출력
+RIGHT OUTER JOIN: 조인되는 두 테이블 중 오른쪽 테이블의 모든행이 결과 관계없이 모두출력
 
 
+SELECT firstname, age, city, ORDERnumber, ORDERdate
+FROM persons LEFT OUTER JOIN orders ON persons.ID= orders.PERSONID;
+
+이외의 SQL구문(DCL)  
+
+GRANT(권한부여) 사용자 권한 부여 
+
+GRANT all privileges on *.* to userid@host identified by 'password'; 
 
 
-
-
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes
 
 
 
