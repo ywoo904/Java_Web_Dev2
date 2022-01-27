@@ -14,12 +14,20 @@ public class JDBCtest {
 	String user = "myjsp"; 
 	String password  ="myjsp"; 
 
-	//마리아DB설정 //MariaDB 사용자 설정: 
+	//마리아DB설정 //MariaDB URL => jdbc:mysql://[주소 또는 도메인]:[포트번호]/[DB이름]" 
 	String driver_mariadb = "org.mariadb.jdbc.Driver";
 	String url_mariadb ="jdbc: mysql://localhost:3306/testdb"; 
 	String m_user="root";
 	String  m_password="0000"; 
 	
+	/* MySQL 버전 6이상의 경우 
+	 String driver_mysql ="com.mysql.cj.jdbc.Driver";
+	 String url_mysql= "jdbc:mysql://localhost:3306/testdb?serverTimezone=Asia/Seoul"; 
+	 
+	  MySQL 버전 6이전 의 경우
+	 String driver_mysql ="com.mysql.jdbc.Driver";
+	 String url_mysql= "jdbc:mysql://localhost:3306/testdb"; 
+	  */
 	
 	//연결확인 위한 객체생성 	//connection 값을 판별하는 boolean값
 	Connection conn = null;
@@ -30,7 +38,7 @@ public class JDBCtest {
 		Class.forName(driver_oracle); //Class.forName(driver_mariadb);
 		//2. DB연결 
 		conn = DriverManager.getConnection(url_oracle, user, password); //conn= DriverManager.getConnection(url_mariadb, m_user, m_password);
-		connect = true; 
+		connect = true;   
 	} catch (ClassNotFoundException cnfe) { 
 		 //1.드라이버로딩이 안될때 
 		connect= false; 
@@ -46,7 +54,7 @@ public class JDBCtest {
 		e.printStackTrace();
 	}  
 	
-	if (connect) { 
+	if (connect=true) { 
 		System.out.println("연결성공");
 	} else {  
 		System.out.println("연결실패");
