@@ -7,7 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>아이디가 틀렸습니다!</h2>
-	<a href="login.jsp">로그인 페이지로 이동</a>
+
+
+
+
+
+
+
 </body>
 </html>
