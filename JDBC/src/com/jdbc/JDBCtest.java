@@ -14,12 +14,12 @@ public class JDBCtest {
 	String user = "myjsp"; 
 	String password  ="myjsp"; 
 
-	//마리아DB설정 //MariaDB URL => jdbc:mysql://[주소 또는 도메인]:[포트번호]/[DB이름]" 
+	/*마리아DB설정 //MariaDB URL => jdbc:mysql://[주소 또는 도메인]:[포트번호]/[DB이름]" 
 	String driver_mariadb = "org.mariadb.jdbc.Driver";
 	String url_mariadb ="jdbc: mysql://localhost:3306/testdb"; 
 	String m_user="root";
 	String  m_password="0000"; 
-	
+	*/
 	/* MySQL 버전 6이상의 경우 
 	 String driver_mysql ="com.mysql.cj.jdbc.Driver";
 	 String url_mysql= "jdbc:mysql://localhost:3306/testdb?serverTimezone=Asia/Seoul"; 

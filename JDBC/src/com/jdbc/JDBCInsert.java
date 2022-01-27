@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class JDBCInsert {
-	
-	
+
+	@SuppressWarnings("null")
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		//입력값을 받는 코드 
@@ -33,7 +33,7 @@ public class JDBCInsert {
 		 Class.forName("oracle.jdbc.driver.OracleDriver");
 		 
 		 //2. Connection 객체를 생성 
-		 DriverManager.getConnection(url,uid, upw); 
+		 conn= DriverManager.getConnection(url,uid, upw); 
 		
 		 //3. SQL쿼리를 전달할 Statement 객체를 생성 
 		 stmt = conn.createStatement(); 
