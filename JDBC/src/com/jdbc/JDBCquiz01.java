@@ -17,6 +17,7 @@ public class JDBCquiz01 {
 		String url= "jdbc:oracle:thin:@localhost:1521/XEPDB1";
 		String uid = "myjsp"; 
 		String upw = "myjsp"; 
+		
 		Connection conn = null; 
 		Statement stmt = null ;
 		ResultSet rs = null;
@@ -29,24 +30,21 @@ public class JDBCquiz01 {
 			stmt= conn.createStatement(); 
  			rs= stmt.executeQuery(sql); 
  			
- 			if (rs!=null) { 
- 				System.out.println(id+"를 출력했습니다.");
- 			} else  { 
- 				System.out.println(id+"출력하지 못했습니다.");
- 			} 
- 			
- 			while (rs.next()) {
- 				String id1 = rs.getString("id"); 
-				String pw1 = rs.getString("pw");
-				String name1= rs.getString("name"); 
-				String email1= rs.getString("email"); 
-				System.out.println("---------------------------------------------"); 
-				System.out.println("DB로부터 받은 ID값:"+ id1); 
-				System.out.println("DB로부터 받은 pw값:"+ pw1); 
-				System.out.println("DB로부터 받은 name값:"+ name1); 
-				System.out.println("DB로부터 받은 email값:"+ email1); 
- 			} 
-		
+ 			if (rs.next ( )) {
+ 				String id1= rs.getString("ID"); 
+ 				String pw1 = rs.getString("PW");
+ 				String name1=  rs.getString("NAME");
+ 				String email1= rs.getString("EMAIL");
+ 				System.out.println("------------검색한 ID:  "+id+"님 정보--------------");
+ 				System.out.println("아이디는" + id1);
+ 				System.out.println("패스워드는" + pw1);
+ 				System.out.println("이름은" + name1);
+ 				System.out.println("이메일은" + email1);
+ 			} else {  
+ 				System.out.println(id+ "는 없습니다");
+ 				
+ 			} 	
+ 				
 		} catch  (Exception e) { 
 			e.printStackTrace(); 
 		} finally  {  
