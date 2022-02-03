@@ -9809,3 +9809,12 @@ Caused by: java.io.IOException: Server returned HTTP response code: 502 for URL:
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2022-02-03 17:19:35.437
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-03 17:57:19.383
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-03 17:57:19.384
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-03 17:57:19.385
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT

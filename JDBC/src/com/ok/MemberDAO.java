@@ -113,7 +113,7 @@ public class MemberDAO {
 		
 		try {
 			//Connection객체생성 
-			DriverManager.getConnection(url, user, password); 
+			conn =DriverManager.getConnection(url, user, password); 
 			//PreparedStatement객체생성 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id); 
@@ -123,12 +123,13 @@ public class MemberDAO {
 			while(rs.next()) { 
 				//rs.getString(컬럼명)을 통해 값을 얻어오는 코드
 				String name= rs.getString("name"); 
+				String pw = rs.getString("pw");
 				String phone1= rs.getString("phone1");
 				String phone2= rs.getString("phone2"); 
 				String email = rs.getString("email"); 
 				String gender = rs.getString("gender"); 
 				
-				vo= new MemberVO(id, null, name, phone1, phone2, email, gender);
+				vo= new MemberVO(id, pw, name, phone1, phone2, email, gender);
 			} 
 			
 			

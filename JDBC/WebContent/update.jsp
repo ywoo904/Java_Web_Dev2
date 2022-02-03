@@ -14,9 +14,10 @@
  //String gender = (String) request.getAttribute("user_gender"); 
  
  //VO를 이용한 값 받기
- MemberVO vo = (MemberVO) request.getAttribute("vo");
+ MemberVO vo = (MemberVO)request.getAttribute("vo");
  
- String pw= vo.getPw(); 
+ //String pw= vo.getPw(); 
+ String pw = vo.getPw();
  String name= vo.getName(); 
  String phone1 = vo.getPhone1() ; 
  String phone2= vo.getPhone2(); 
