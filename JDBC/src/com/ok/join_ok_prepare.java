@@ -49,6 +49,7 @@ public class join_ok_prepare extends HttpServlet {
 		String sql = "INSERT INTO TESTUSERS VALUES (?,?,?,?,?,?,?)"; 
 		
 		try { 
+			
 			Class.forName(driver); 
 			conn= DriverManager.getConnection(url,uid,upw); 
 			pstmt = conn.prepareStatement(sql); 
