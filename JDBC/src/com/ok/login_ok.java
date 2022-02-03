@@ -33,6 +33,7 @@ public class login_ok extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//로그인 form으로 받은 정보전달 
+		
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");  
 		String pw = request.getParameter("pw");  

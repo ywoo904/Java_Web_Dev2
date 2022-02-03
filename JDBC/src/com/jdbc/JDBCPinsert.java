@@ -37,6 +37,7 @@ public class JDBCPinsert {
 			pstmt.setString(2,pw ); 
 			pstmt.setString(3,name);
 			pstmt.setString(4,email );
+		
 			
 			//pstmt실행(성공시 1을, 실패시 1을 반환)  
 			int result = pstmt.executeUpdate();

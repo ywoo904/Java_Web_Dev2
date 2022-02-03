@@ -23,6 +23,6 @@
 	<h2>(<%=id %>)<%=name %>님 환영합니다. </h2>
 	<a href= logout.jsp>로그아웃</a> <br> 
 	<a href= 'modify_ok'>회원정보 수정 </a><br>
-	<a href= '#'>회원탈퇴</a>
+	<a href= 'delete_ok'>회원탈퇴</a>
 </body>
 </html>
