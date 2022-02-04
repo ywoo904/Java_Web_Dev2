@@ -3,9 +3,17 @@ package com.ok;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.ResultSet; 
+import java.sql.*;  
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 public class MemberDAO {
+	private DataSource ds; //데이터소스 객체생성 
+	private Context ct; // javax.naming.*
+	
 	/*
 	 * DAO는 단수 DB연동을 담당하는 클래스  
 	 * 여러개 생성하지 않도록 일반클래스로 만들면 메모리 과부하가 올 수 있음 
@@ -19,8 +27,10 @@ public class MemberDAO {
 	private MemberDAO()  { 
 	//생성자가 한번 동작할 때에 다음 내용을 처리... 	
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver"); 
-		} catch (Exception e) {
+			ct= new InitialContext(); //이니셜 컨텍스트 객체생성
+			ds= (DataSource)ct.lookup("java:comp/env/jdbc/oracle");
+			ct.lookup("java:comp/env/jdbc/oracle");//이니셜 컨텍스트부터 찾음
+				} catch (Exception e) {
 			System.out.println("드라이버 호출 시 에러발생");
 		}
 	}
@@ -47,7 +57,9 @@ public class MemberDAO {
 		
 		try {
 			//Connection 객체생성 
-			conn= DriverManager.getConnection(url,user,password);
+			//conn= DriverManager.getConnection(url,user,password);
+			conn= ds.getConnection();
+			
 			
 			//PreparedStatement 객체생성 
 			pstmt= conn.prepareStatement(sql);
@@ -82,7 +94,8 @@ public class MemberDAO {
 		String sql= "select *from testusers where id=? and pw=?"; 
 		
 		try {
-			conn = DriverManager.getConnection(url,user,password);
+			conn= ds.getConnection();
+			//conn = DriverManager.getConnection(url,user,password);
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
@@ -113,7 +126,8 @@ public class MemberDAO {
 		
 		try {
 			//Connection객체생성 
-			conn =DriverManager.getConnection(url, user, password); 
+			conn= ds.getConnection();
+			//conn =DriverManager.getConnection(url, user, password); 
 			//PreparedStatement객체생성 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id); 
@@ -155,7 +169,8 @@ public class MemberDAO {
 		
 		try { 
 			//커넥션 
-			conn = DriverManager.getConnection(url,user,password); 
+			conn= ds.getConnection();
+			//conn = DriverManager.getConnection(url,user,password); 
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setString(1,vo.getPw()); 
 			pstmt.setString(2,vo.getName()); 
@@ -188,7 +203,8 @@ public class MemberDAO {
 		
 		try {
 			//커넥션생성
-			conn= DriverManager.getConnection(url,user,password);
+			conn= ds.getConnection();
+			//conn= DriverManager.getConnection(url,user,password);
 			//PreparedStatement 객체생성
 			pstmt= conn.prepareStatement(sql); 
 			pstmt.setString(1,id );

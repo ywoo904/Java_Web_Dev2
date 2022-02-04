@@ -12176,3 +12176,12 @@ java.io.IOException: Unable to start language server: CSS Language Server: Proce
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2022-02-04 15:24:42.857
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-04 17:49:55.468
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-04 17:49:55.469
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2022-02-04 17:49:55.470
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
