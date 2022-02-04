@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JDBC" path="/JDBC" reloadable="true" source="org.eclipse.jst.jee.server:JDBC"/></Host>
+      <Context docBase="C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JDBC" path="/JDBC" reloadable="true" source="org.eclipse.jst.jee.server:JDBC"/><Context docBase="C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MyWeb" path="/MyWeb" reloadable="true" source="org.eclipse.jst.jee.server:MyWeb"/></Host>
     </Engine>
   </Service>
 </Server>

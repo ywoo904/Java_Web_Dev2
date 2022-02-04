@@ -180,6 +180,36 @@ public class MemberDAO {
 		
 	}
 	
+	public int delete(String id) {
+
+		int result= 0; 
+		
+		String sql = "delete from testusers where id=?";
+		
+		try {
+			//커넥션생성
+			conn= DriverManager.getConnection(url,user,password);
+			//PreparedStatement 객체생성
+			pstmt= conn.prepareStatement(sql); 
+			pstmt.setString(1,id );
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) { 
+			e.printStackTrace(); 
+		} finally { 
+			try { 
+				if(conn!= null) conn.close();  
+				if(pstmt!=null) pstmt.close();  
+			} catch (Exception e2) { } 
+		} 
+		
+		return result;
+		
+		
+	} 
+	
+	
 	
 	
 	

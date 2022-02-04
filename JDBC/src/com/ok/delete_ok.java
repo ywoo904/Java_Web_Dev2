@@ -30,53 +30,30 @@ public class delete_ok extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 /*
-		  * Delete from 테이블명 where id = ? 
-		  * 1. 아이디는 세션에서 get
-		  * 2. pstmet 이용해서 삭제를 진행 
-		  * 3. 사용 메섣느느 executeUpdate() 로 sql 문을 진행 
-		  * 1을 반환 => 세션삭제 후 login,jsp로 이동 
-		  * 0을 반환 => 쿼리 실패, mypage.jsp로 이동 
-		  * */
+		
 		HttpSession session = request.getSession(); //세션객체생성
 		String id= (String)session.getAttribute("user_id");  
+		/*
+		 * 1. 아이디는 세션에서 얻는다. 
+			2. DAO에 delete (id) 생성
+			3. 메서드 생성시에 executeUpdate() 메서드를 사용하여 성공시 delete(id) 메서드에서 
+			1을 반환-> 세션을 전부 삭제 후 login,jsp로 이동
+			0을 반환 -> mypage.jsp로 이동 
+		 * */
+		//DAO 객체를 불러온다.
+		MemberDAO dao = MemberDAO.getInstance(); 
+		//VO객체를 불러올 필요가 없다. 바로 DAO클래스 돌린 값을 불러오기
+		int result = dao.delete(id);
 		
-		//DB 연동
-		String url= "jdbc:oracle:thin:@localhost:1521/XEPDB1";
-		String uid= "myjsp"; 
-		String upw=  "myjsp"; 
-		String driver= "oracle.jdbc.driver.OracleDriver"; 
+		if (result==1) {  
+			session.invalidate();
+			response.sendRedirect("login.jsp");
+		} else { 
+			response.sendRedirect("mypage.jsp");
+		} 
 		
-		Connection conn = null; 
-		PreparedStatement pstmt= null; 
-		String sql = "DELETE From testusers where ID=?"; 
 		
-		try { 
-			Class.forName(driver); 
-			conn= DriverManager.getConnection(url, uid,upw); 
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id); 
 		
-			
-			int result= pstmt.executeUpdate(); 
-			
-			if (result==1) { 
-				 session.invalidate(); 
-				response.sendRedirect("login.jsp"); 
-	
-			} else {  
-				response.sendRedirect("mypage.jsp"); 
-			}
-		} catch(Exception e  )  {
-			e.printStackTrace();
-			
-		}  finally { 
-			
-		} try { 
-			if (conn!=null) conn.close(); 
-			if(pstmt!=null ) pstmt.close() ; 
-			
-		} catch (Exception e2) { } 
 		
 	}
 
