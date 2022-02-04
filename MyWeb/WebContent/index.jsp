@@ -1,69 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<jsp:include page="include/header.jsp" /> 
+    
+
+<%@include file="include/header.jsp" %>
 
 <body>
-	<!-- header -->
-	<div class="brand">My Web</div>        
-    <div class="address-bar">Welcome to MyWorld</div>
-		
-    
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                <a class="navbar-brand" href="/hong">My First Web</a>
-            </div>
-           
-           
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                	
-                    <li>
-                        <a href="">HOME</a>
-                    </li>
-                    <li>
-                        <a href="member/member.jsp">Member</a>
-                    </li>
-                    <li>
-                        <a href="">BOARD</a>
-                    </li>
-                    <li>
-                        <a href="">LOGIN</a>
-                    </li>
-                    <li>
-                        <a href="" style="color:red">JOIN</a>
-                    </li>
-                </ul>
-            </div>
-            
-            
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
- 	<!-- end header -->
- 
- 
- 
- 
- 
     <div class="container">
-    
         <div class="row ">
         	
-        	       
             <div class="box">
-                
-                       
+                  
                 <div class="col-lg-6 text-center">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"><!-- data-ride="carousel" 자동 슬라이드 기능 -->
                        
@@ -74,7 +20,6 @@
                             
                         </ol>
 
-                     
                         <div class="carousel-inner">
                             <div class="item active">
                                 <img class="img-responsive img-full" src="img/1.jpg">
@@ -88,7 +33,6 @@
                            
                         </div>
 
-                       	
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                             <span class="icon-prev"></span>
                         </a>
@@ -96,12 +40,9 @@
                             <span class="icon-next"></span>
                         </a>
                     </div>
-                        
+                      
                 </div>
-                
-                
-                 
-                    
+
                 <div class="col-lg-6 text-center" >    
                    
 						<h2>배우</h2>
@@ -114,12 +55,9 @@
 						<iframe width="100%" height="372px" src="https://www.youtube.com/embed/1C6dcnVQjSM?autoplay=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>></iframe>
 					
                  </div>   
-                    
-                
+
             </div>
-            
-          
-            
+
         </div>
 
         <div class="row">
@@ -143,26 +81,18 @@
 		                    <p>3. ------------------------------------------------------</p>
 	                    	
 	                    </div>
-	                    	
-                    
+
                 </div>
-              
-                
-                
-                
+
             </div>
         </div>
 
           
     <!-- /.container -->
     </div>
-    
-    
-    
-<jsp:include page="include/footer.jsp" /> 
 
-	
-	
+    <%@include file="include/footer.jsp" %>
+
 	
 </body>
 </html>
