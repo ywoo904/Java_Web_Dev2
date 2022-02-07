@@ -187,17 +187,40 @@ public class UserDAO {
 		}  
 		return result1; 
 		}
+	
+	
+	//회원정보수정 메서드 
+	public int update(String id, String name, String email, String address) { 
+		int result = 0; 
+		UserVO vo = null;
+		String sql = "UPDATE USERS SET NAME=?, EMAIL= ?, ADDRESS=? WHERE ID=?"; 
+		try { 
+			conn= ds.getConnection(); 
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, vo.getName()); 
+			pstmt.setString(2, vo.getEmail()); 
+			pstmt.setString(3, vo.getAddress()); 
+			pstmt.setString(4 ,vo.getId()); 
+			result= pstmt.executeUpdate( );
 		
-		
-	
-	
-	
-	
-	
-	
-	
-}
+		} catch (Exception e) {
+		e.printStackTrace();
+	} finally { 
+		try {
+			JdbcUtil.close(conn, pstmt, rs); 
+			
+		} catch (Exception e2) {
+		} 
+	}  
+	return result;
+	}
 
+	} 
+	
+
+	
+	
+	
 
 
 
