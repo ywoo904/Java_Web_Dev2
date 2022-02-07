@@ -1,12 +1,7 @@
 INDEX VERSION 1.4+C:\github\Java_Web_Dev2\Java_Web_Dev2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 2599909504.index
 2368145409.index
-690995218.index
-3586883894.index
 2921315682.index
 2056725392.index
 2506192191.index
-3981379628.index
-3981379628.index
-3717410807.index
 879304602.index
