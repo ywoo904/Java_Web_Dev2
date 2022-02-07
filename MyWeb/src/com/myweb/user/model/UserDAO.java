@@ -165,6 +165,31 @@ public class UserDAO {
 		return vo; 
 	} 
 	
+	//비밀번호 변경메서드  
+	public int changepassword(String id2, String new_pw) { 
+		int result1= 0;
+		
+		String sql= "UPDATE USERS SET PW=? WHERE ID=?"; 
+		try {  
+			conn=ds.getConnection(); 
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, new_pw ); 
+			pstmt.setString(2, id2);
+			result1= pstmt.executeUpdate( );
+			} catch (Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+				JdbcUtil.close(conn, pstmt, rs); 
+				
+			} catch (Exception e2) {
+			} 
+		}  
+		return result1; 
+		}
+		
+		
+	
 	
 	
 	
