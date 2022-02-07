@@ -32,7 +32,9 @@ UserDAO dao = UserDAO.getInstance();
 UserVO vo = new UserVO(id, null, name,email, address, null); 
 
 int result= dao.update(vo); 
-if (result==1) {  
+if (result==1) { //성공 시 
+	//이름을 변경한 경우 세션에 저장된 이름을 변경 
+	session.setAttribute("user_name", name);
 %> 
 	<script> 
 	alert("회원정보가 수정되었습니다." ); 
