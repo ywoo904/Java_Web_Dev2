@@ -7,22 +7,18 @@
 <form name="regform" action= "user_join_ok.jsp"  method="post"> 
 <h2>회원가입 페이지</h2>
 <table> 
-
 <tr> 
 <td>아이디</td>
 <td><input type="text" name="id" placeholder="4글자 이상 8글자 이하"></td>
 </tr>
-
 <tr> 
 <td>비밀번호</td>
 <td><input type="password" name="pw"></td>
 </tr>
-
 <tr>
 <td> 비밀번호 확인</td>
 <td><input type="password" name="pw_check"></td>
 </tr>
-
 <tr> 
 <td> 이름</td>
 <td><input type="text" name="name"> </td>
@@ -33,16 +29,13 @@
 <td><input type="email" name="email" > </td>
 </tr>
 
-
 <tr> 
 <td> 주소</td> 
 <td><input type="text" name="address" > </td>
 </tr>
-
 </table>
-
 <input type="button" value="회원가입" class="btn btn-primary" onclick="check()"> 
-<input type="button" value="로그인" class="btn btn-info"> 
+<input type="button" value="로그인" class="btn btn-info" onclick="location.href='user_login.jsp'"> 
 </form>
 </div>
 </section>

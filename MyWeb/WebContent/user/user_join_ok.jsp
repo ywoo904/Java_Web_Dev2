@@ -12,7 +12,7 @@
 	5. 회원가입 축하 및 로그인 페이지로 이동 | 실패 시 재가입 페이지로 이동 
 */ 
 %>
-		//입력값 처리 
+	
 		 <%
 		 request.setCharacterEncoding("utf-8");
 		String id= request.getParameter("id");

@@ -9,7 +9,7 @@ import java.sql.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
+// 두개의 객체생성 
 public class MemberDAO {
 	private DataSource ds; //데이터소스 객체생성 
 	private Context ct; // javax.naming.*
@@ -27,9 +27,9 @@ public class MemberDAO {
 	private MemberDAO()  { 
 	//생성자가 한번 동작할 때에 다음 내용을 처리... 	
 		try {
-			ct= new InitialContext(); //이니셜 컨텍스트 객체생성
-			ds= (DataSource)ct.lookup("java:comp/env/jdbc/oracle");
-			ct.lookup("java:comp/env/jdbc/oracle");//이니셜 컨텍스트부터 찾음
+			ct= new InitialContext(); //이니셜 컨텍스트 객체생성 (content.xml 을 삽입하는 역할) 
+			ds= (DataSource)ct.lookup("java:comp/env/jdbc/oracle"); //이니셜 컨텍스트로부터 찾음 
+		
 				} catch (Exception e) {
 			System.out.println("드라이버 호출 시 에러발생");
 		}
@@ -58,7 +58,7 @@ public class MemberDAO {
 		try {
 			//Connection 객체생성 
 			//conn= DriverManager.getConnection(url,user,password);
-			conn= ds.getConnection();
+			conn= ds.getConnection(); //url, user, password를 content.xml에서 선언했기 때문에 삽입할 필요가 없다. 
 			
 			
 			//PreparedStatement 객체생성 
@@ -215,9 +215,12 @@ public class MemberDAO {
 			e.printStackTrace(); 
 		} finally { 
 			try { 
-				if(conn!= null) conn.close();  
-				if(pstmt!=null) pstmt.close();  
-			} catch (Exception e2) { } 
+				if (conn!=null ) conn.close(); 
+				if(pstmt!=null) pstmt.close(); 
+				if(rs!=null) rs.close() ; 
+			} catch (Exception e2) { 
+
+			} 
 		} 
 		
 		return result;

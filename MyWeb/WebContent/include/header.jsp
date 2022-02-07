@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-idth, initial-scale=1">
@@ -62,12 +63,25 @@
                     <li>
                         <a href="#">BOARD</a>
                     </li>
+                    
+                    <!--  세션이 없다면 로그인과 조인 메뉴로 표시
+                   세션이 존재하는 경우 logout과 mypage가 출력 -->  
+                    <% if(session.getAttribute("user_id")==null ) {  %>
                     <li>
-                        <a href="#">LOGIN</a>
+                        <a href="/MyWeb/user/user_login.jsp">LOGIN</a>
                     </li>
                     <li>
-                        <a href="#" style="color:red">JOIN</a>
+                        <a href="/MyWeb/user/user_join.jsp" style="color:red">JOIN</a>
                     </li>
+                    <% } else { %>
+                    <li>
+                        <a href="/MyWeb/user/user_logout.jsp">LOGOUT</a>
+                    </li>
+                    <li>
+                        <a href="/MyWeb/user/user_mypage.jsp" style="color:red">MyPage</a>
+                    </li>
+                    <% } %>
+                    
                 </ul>
             </div>
             
