@@ -8,9 +8,9 @@
 </head>
 <body>
 
-아이디: ${requestscope.id} <br>
-이름:  ${requestscope.name}  <br>
-주소:   ${requestscope.address}  <br>
+아이디: ${requestScope.vo.id } <br>
+이름: ${requestScope.vo.name }  <br>
+주소: ${requestScope.vo.address }  <br>
 
 
 
