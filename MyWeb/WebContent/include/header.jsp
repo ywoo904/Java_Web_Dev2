@@ -55,10 +55,10 @@
                 <ul class="nav navbar-nav">
                 	
                     <li>
-                        <a href="/MyWeb/">HOME</a>
+                        <a href="/MyWeb/index.do">HOME</a>
                     </li>
                     <li>
-                        <a href="/MyWeb/member/member.jsp">Member</a>
+                        <a href="/MyWeb/member.do">Member</a>
                     </li>
                     <li>
                         <a href="#">BOARD</a>
