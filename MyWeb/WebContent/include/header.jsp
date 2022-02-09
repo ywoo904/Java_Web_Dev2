@@ -61,7 +61,7 @@
                         <a href="/MyWeb/member.do">Member</a>
                     </li>
                     <li>
-                        <a href="#">BOARD</a>
+                        <a href="/MyWeb/board/list.board">BOARD</a>
                     </li>
                     
                     <!--  세션이 없다면 로그인과 조인 메뉴로 표시
