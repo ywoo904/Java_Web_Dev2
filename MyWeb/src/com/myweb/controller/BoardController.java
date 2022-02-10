@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.myweb.board.service.ContentServiceImpl;
+import com.myweb.board.service.DeleteServiceImpl;
 import com.myweb.board.service.GetListServiceimpl;
 import com.myweb.board.service.IBoardService;
 import com.myweb.board.service.RegisterServiceimpl;
+import com.myweb.board.service.UpdateServiceImpl;
 
 @WebServlet("*.board")
 public class BoardController extends HttpServlet {
@@ -71,8 +74,44 @@ public class BoardController extends HttpServlet {
 			//글등록
 			service= new RegisterServiceimpl(); 
 			service.execute(request, response);
-			response.sendRedirect("board_list.jsp");
-		}
+			response.sendRedirect("list.board");
+		} else if(command.equals("/board/content.board")) {  
+			//글보기(상세보기) 
+			service = new ContentServiceImpl(); 
+			service.execute(request, response); 
+			
+			//forwarding  
+			RequestDispatcher dp = request.getRequestDispatcher("board_content.jsp"); 
+			dp.forward(request, response);
+			
+		} else if(command.equals("/board/modify.board")) { 
+			//글수정 뷰를 제공 (수정화면 요청) 
+			service = new ContentServiceImpl(); 
+			service.execute(request, response); 
+			
+			//forwarding  
+			RequestDispatcher dp = request.getRequestDispatcher("board_modify.jsp"); 
+			dp.forward(request, response);
+
+		} else if (command.equals("/board/update.board" )) { 
+		
+			//3 .DAO의 update()에서 update구문으로 데이터를 수정 
+			//4., 페이지 이름을 상세보기 화면으로 연결(이때 필요한 값을 전달해야함.  
+			service = new UpdateServiceImpl(); 
+			service.execute(request, response);
+			String num = request.getParameter("num"); 
+			response.sendRedirect("content.board?num="+num); //다시 컨트롤러로
+			
+		} else if (command.equals("/board/delete.board")) {
+	
+			service = new DeleteServiceImpl(); 
+			service.execute(request, response);
+			
+			response.sendRedirect("list.board"); //보낼정보가 없을 때 sendRedirect
+			
+		} 
+		
+		
 		
 		
 		

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.myweb.user.model.UserVO;
 import com.myweb.util.JdbcUtil;
 
 public class BoardDAO {
@@ -92,7 +93,7 @@ public class BoardDAO {
 				Timestamp regdate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
 				
-				BoardVO vo = new BoardVO( num, writer,title, content,regdate,hit); 
+				BoardVO vo = new BoardVO(num, writer,title, content,regdate,hit); 
 				
 				list.add(vo); 
 
@@ -105,18 +106,95 @@ public class BoardDAO {
 				JdbcUtil.close((conn), pstmt, rs);
 			} catch (Exception e2) { } 
 		} 
-		
-		
-		
+
 		return list; 
 		
 	} 
+	//num을 이용한 게시글 넘기는 getContent() 메서드 작성
+	public BoardVO getContent(String num1) {  
+		
+		BoardVO vo = new BoardVO( );
+		
+		String sql ="select * from board where num=?"; 
+		try { 
+			conn =ds.getConnection(); //커넥션객체생성
+			pstmt= conn.prepareStatement(sql); //PreparedStatement객체생성 
+			pstmt.setString(1, num1);  
+			rs= pstmt.executeQuery(); 
+			
+				if (rs.next()) { 
+				int num= rs.getInt("num"); 
+				String writer = rs.getString("writer") ; 
+				String title= rs.getString("title"); 
+				String content= rs.getString("content");
+				Timestamp regdate = rs.getTimestamp("regdate");
+				int hit = rs.getInt("hit");
+				
+				/*또는 vo.setNum(rs.getInt("num")); 형태로 받아올 수 있음. 
+				 * 			vo.setWriter(rs.getString("writer)); 
+				 * */
+			 vo = new BoardVO(num, writer, title, content, regdate, hit);
+			 } }catch(Exception e) {
+		e.printStackTrace();	
+		} finally { 
+		} try { JdbcUtil.close(conn, pstmt, rs);
+		} catch (Exception e2) { } 
+		return vo;  
+	}  	
 	
+	//업데이트 매서드 처리
+	public int update(String num, String title, String content) { 
+		int result=0;
+		String sql = "UPDATE board set TITLE=?, CONTENT=? where NUM=?"; 
+		try { 
+			conn =ds.getConnection(); //커넥션객체생성
+			pstmt= conn.prepareStatement(sql); //PreparedStatement객체생성 
+			pstmt.setString(1, title); 
+			pstmt.setString(2, content); 
+			pstmt.setInt(3, Integer.parseInt(num)); 
+			result= pstmt.executeUpdate(); 
+		} catch (Exception e) {    
+			e.printStackTrace();  
+		} finally { 
+			try { 
+				JdbcUtil.close((conn), pstmt, rs);
+			} catch (Exception e2) { } 
+		} 
+		return result; 
+	}  	
 	
-	
-	
-	
-	
+	public int delete(String num) { 
+		int result=0;
+		String sql = "DELETE FROM BOARD WHERE NUM=?";  
+		try { 
+			conn =ds.getConnection(); //커넥션객체생성
+			pstmt= conn.prepareStatement(sql); //PreparedStatement객체생성 
+			pstmt.setString(1, num); 
+			 pstmt.executeUpdate(); 
+		} catch (Exception e) { 
+			e.printStackTrace();  
+		} finally { 
+			try { 
+				JdbcUtil.close((conn), pstmt, rs);
+			} catch (Exception e2) { } 
+		} 
+		return result; 
+	}  
+	//조회수 업데이트 
+	public void upHit(String num) { 
+		int result= 0; 
+		String sql = "update board set hit=hit+1 where num=?";
+		try {  
+			conn= ds.getConnection(); 
+			pstmt= conn.prepareStatement(sql); 
+			pstmt.setString(1, num); 
+			result= pstmt.executeUpdate(); 
+		} catch(Exception e) { 
+			e.printStackTrace(); 	
+		} finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		} 
+	}
 	
 	
 	

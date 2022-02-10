@@ -20,6 +20,13 @@ public class RegisterServiceimpl implements IBoardService{
 		//regist 매서드호출 
 		int result = dao.regist(writer,title,content); 
 		
+		if(result==1) { 
+			System.out.println("수정이 완료되었습니다.");
+			
+		} else  { 
+			System.out.println("수정에 실패했습니다. ");
+			
+		}
 		
 		
 		

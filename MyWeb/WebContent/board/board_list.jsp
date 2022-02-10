@@ -6,8 +6,6 @@
 <!--  
 게시글 목록 확인하는 친구
  -->
-
-
 <!DOCTYPE html>
 <html>
 <%@ include file= "../include/header.jsp" %>
@@ -29,25 +27,21 @@
 			<!-- EL 과 JSTL을 사용하여 처리 -->
 			
 			<tbody>
-			<c:forEach var="vo"  items= "${list }"  >
+			<c:forEach var="vo"  items="${list }"  >
  				<tr> 
 				<td>${vo.num}</td> 
 				<td>${vo.writer}</td>
-				<td><a href ="#" >${vo.title} </a></td>
+				<td><a href ="content.board?num=${vo.num}" >${vo.title} </a></td>
 				<td>${vo.regdate}</td>
 				<td>${vo.hit}</td>
 				</tr> 
 					</c:forEach>
 			</tbody>
-				
-				
-				
-			
-			
-				<!--  작성글 검색 및 글작성하기 메뉴 -->
+
+			<!--  작성글 검색 및 글작성하기 메뉴 -->
 			<tbody>
 				<tr> 
-					<td colspan= 5 align="right">
+					<td colspan= 5  align="right">
 					<form action="" class = "form-inline"> 
 						<div class="form-group"> 
 						<input type="text" name="search" placeholder="제목검색"  class="form-control"> 
@@ -71,10 +65,6 @@
 				
 				
 				</div>
-
-
-
-
 
 <%@ include file= "../include/footer.jsp" %>
 
