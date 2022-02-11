@@ -36,4 +36,7 @@
 <fullyQualifiedTypeName name="com.myweb.board.service.DeleteServiceImpl"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="com.myweb.util.PageVO"/>
+<fullyQualifiedTypeName name="com.myweb.util.Criteria"/>
 </qualifiedTypeNameHistroy>

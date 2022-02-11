@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.myweb.board.model.BoardDAO;
 import com.myweb.board.model.BoardVO;
+import com.myweb.util.Criteria;
+import com.myweb.util.PageVO;
 
 public class GetListServiceimpl implements IBoardService{ 
 	@Override 
@@ -19,10 +21,26 @@ public class GetListServiceimpl implements IBoardService{
 		 3. 다음으로 전달하기 위해서 request객체에 강제로 저장.   
 		  */
 		
-		BoardDAO dao = BoardDAO.getInstance(); 
-		ArrayList<BoardVO> list= dao.getList(); // 목록조회 메서드로 반환값은 List <BoardVO> 저장 
+		//페이징작업 
+		BoardDAO dao = BoardDAO.getInstance();
+		//기준값 객체 생성  
+		Criteria cri = new Criteria( );
+		if (request.getParameter("pageNum")!=null) { 
+			//전달받은 페이지 값을 처리 	
+			String pageNum =request.getParameter("pageNum"); 
+			cri.setPageNum(Integer.parseInt(pageNum));
+		}
 		
+		ArrayList<BoardVO> list= dao.getList(cri); // 목록조회 메서드로 반환값은 List <BoardVO> 저장 
 		request.setAttribute("list",list);
+		
+		//화면에 보여질 페이지 버튼을 계산처리
+		//1. 총 게시글 수 
+		int total = dao.getTotal();
+		
+		//2. PageVO 객체를 생성 
+		PageVO vo = new PageVO(total,cri);
+		request.setAttribute("PageVO", vo);
 		
 		
 		
