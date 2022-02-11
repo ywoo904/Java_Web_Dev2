@@ -52,15 +52,9 @@
   <script type="text/javascript"> 
 	function modifyCheck() {
 		//작성자, 글제목에 공백을 확인하고, 공백이 아니라면 submit() 처리
-		 if(confirm("게시글을 삭제하겠습니까?")) {
-			
+		 if(confirm("게시글을 수정하겠습니까?")) {
 			document.regform.submit( ); 
-			
 		}
-		
-	}
-	
-
 		
 	}
 	

@@ -151,7 +151,7 @@ public class BoardDAO {
 			pstmt= conn.prepareStatement(sql); //PreparedStatement객체생성 
 			pstmt.setString(1, title); 
 			pstmt.setString(2, content); 
-			pstmt.setInt(3, Integer.parseInt(num)); 
+			pstmt.setString(3, num);
 			result= pstmt.executeUpdate(); 
 		} catch (Exception e) {    
 			e.printStackTrace();  
